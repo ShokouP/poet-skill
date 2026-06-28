@@ -1,52 +1,74 @@
 # Poet · 诗人 Skill
 
-A Chinese poetry composition skill for Claude, grounded in classical poetics theory and the [chinese-poetry](https://github.com/chinese-poetry/chinese-poetry) corpus.
+A Chinese poetry composition skill for Claude — grounded in classical poetics, powered by the [chinese-poetry](https://github.com/chinese-poetry/chinese-poetry) corpus. **Gu Xianrong's Tianci Menjing (填词门径) is the structural backbone**, with Yan Yu's Canglang Shihua and Wang Guowei's Renjian Cihua as complementary pillars.
 
-为 Claude 打造的中文写诗技能，以 chinese-poetry 数据库为范本、以《沧浪诗话》和《人间词话》为诗评框架。
+为 Claude 打造的中文写诗技能。以顾宪融《填词门径》为填词统揽，严羽《沧浪诗话》统揽诗道，王国维《人间词话》贯串诗词，chinese-poetry 数据库为范本。
 
 ---
 
+## Theory Framework · 理论体系
+
+| 著作 | 地位 | 核心范畴 |
+|------|------|----------|
+| **顾宪融《填词门径》** | 填词之纲 | 选调·十六要诀·意内言外·先空后实·起结转折·北宋重拙大/南宋深细密 |
+| 严羽《沧浪诗话》 | 诗道统揽 | 妙悟·兴趣·气象·辨体·入神·别材别趣 |
+| 王国维《人间词话》 | 诗词通贯 | 境界·有我/无我·造境/写境·隔与不隔·忧生忧世 |
+
+### 十六要诀 (16 Keys to Ci Poetry)
+
+From Sun Linzhi's Cijing, adopted by Gu Xianrong:
+
+> **清 轻 新 雅 灵 脆 婉 转 留 托 澹 空 皱 韵 超 浑**
+
+Eight for sonic-emotional quality, six for technique.
+
+### Ci Tune Selection (选调)
+
+词调各有声情 — every ci tune carries its own emotional register. Picking the right tune for the right mood is the **first and most important decision** in ci composition.
+
 ## Features · 功能
 
-- **Genres**: 绝句 (quatrain), 律诗 (regulated verse), 词 (ci / lyrics), 古风 (ancient-style), 现代诗 (modern poetry)
-- **Formal techniques**: 藏头诗 (acrostic), 回文诗 (palindrome), 步韵 (step-rhyme), 限韵 (restricted rhyme)
-- **Style emulation**: Mimics specific poets by analyzing their actual works from the corpus — not from labels
-- **Poetics critique**: Every poem is delivered with a critique using categories from Yan Yu's *Canglang Shihua* (沧浪诗话) and Wang Guowei's *Renjian Cihua* (人间词话)
-- **Anti-AI-slop guardrails**: Specific strategies to avoid the "fluent but soulless" patterns common in AI-generated poetry
+- **Genres**: 绝句 / 律诗 / 词 / 古风 / 现代诗
+- **Formal techniques**: 藏头 / 回文 / 步韵 / 限韵
+- **Style emulation**: Mimics specific poets from corpus analysis, not stereotypes
+- **Critique**: Every poem delivered with evaluation using the relevant theoretical framework
+- **Anti-AI guardrails**: 填词尤戒三病 (清·新 / 留·托 / 空·澹)
+
+## Skill Structure · 章节
+
+```
+SKILL.md
+  ├── 核心立场（以填词门径为纲）
+  ├── 填词门径（顾宪融）★ 独立顶级章节
+  │   ├── 词与诗之别
+  │   ├── 十六要诀
+  │   ├── 意内言外
+  │   ├── 先空后实
+  │   ├── 布局·起结·转折
+  │   ├── 选调（词牌与声情匹配）
+  │   └── 用韵
+  ├── 范本源：chinese-poetry 数据库
+  ├── 评骘框架（沧浪 + 人间词话）
+  ├── 工作流程（5 Step）
+  ├── 格律规范
+  ├── 反 AI 诗味
+  └── 诗论提要
+```
 
 ## Installation · 安装
 
-### Via the Claude desktop app
+Copy `SKILL.md` into your Claude Code skills directory, or paste into the skill creation dialog.
 
-Copy the entire `SKILL.md` and paste it into the skill creation dialog (triggered by `/save-skill` or the skills panel). The skill registers under the name `poet`.
-
-### Manual
-
-Place `SKILL.md` in your skills directory. Triggered by keywords: 写诗、作诗、填词、藏头诗、步韵、诗评、poem.
-
-## Skill structure · 技能结构
-
-```
-poet-skill/
-├── SKILL.md      # The skill definition (frontmatter + full instructions)
-├── README.md     # This file
-└── LICENSE       # MIT
-```
-
-## Core principles · 核心理念
-
-1. **境界为最上** (Realm/artistic conception is supreme) — Wang Guowei
-2. **诗道在妙悟** (The way of poetry lies in inspired insight) — Yan Yu
-3. **先辨气象，次论兴趣，末议格律** — Judge by vitality and atmosphere first, emotional texture second, prosody last
+**Trigger words**: 写诗 / 作诗 / 填词 / 词牌 / 诗评 / poem / 藏头诗 / 步韵
 
 ## Dependencies · 依赖
 
-This skill fetches poems from the [chinese-poetry/chinese-poetry](https://github.com/chinese-poetry/chinese-poetry) GitHub repository as its source of canonical examples. No other external dependencies.
+[chinese-poetry/chinese-poetry](https://github.com/chinese-poetry/chinese-poetry) — the largest open-source database of classical Chinese poetry (~55k Tang poems, 260k Song poems, 21k Song ci).
 
 ## License · 许可
 
-MIT — see [LICENSE](./LICENSE).
+MIT
 
-## Author · 作者
+---
 
-Created by Cowork 3P · 2026
+*Gu Xianrong (1898-1955), courtesy name Foying, pseudonym Damo Shiren. His ci pedagogy — systematic, beginner-friendly, never obscure — is the structural spine of this skill.*
